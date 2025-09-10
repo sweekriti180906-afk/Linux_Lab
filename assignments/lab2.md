@@ -1,122 +1,126 @@
+---
+
+## ✅ Example Scripts in `Scripts/`
+
+Let’s assume you have the following two simple scripts in the `Scripts/` directory:
 
 ---
 
-## ✅ `starter_kit.sh`
+### 📄 `print_numbers.sh`
 
 ```bash
 #!/bin/bash
+# Print numbers from 1 to 5
 
-# Create main project structure
-mkdir -p project/scripts
-mkdir -p project/docs
-mkdir -p project/data
-
-# Create placeholder README.md files
-touch project/README.md
-touch project/scripts/README.md
-touch project/docs/README.md
-touch project/data/README.md
-
-# Optional: Add basic content to the README files
-echo "# Project" > project/README.md
-echo "# Scripts" > project/scripts/README.md
-echo "# Documentation" > project/docs/README.md
-echo "# Data" > project/data/README.md
-
-# Done
-echo "Starter Kit Ready!"
+for i in {1..5}
+do
+  echo "Number: $i"
+done
 ```
 
 ---
 
-### 💾 Save as:
+### 📄 `array_loop.sh`
 
 ```bash
-starter_kit.sh
-```
+#!/bin/bash
+# Loop through an array of fruits
 
-### ▶️ To run:
+fruits=("apple" "banana" "cherry")
 
-```bash
-chmod +x starter_kit.sh
-./starter_kit.sh
+for fruit in "${fruits[@]}"
+do
+  echo "I like $fruit"
+done
 ```
 
 ---
 
-## 📄 `LAB_extra.md`
+## 📘 `LAB2.md`
 
-```markdown
-# LAB_extra.md
+````markdown
+# LAB2.md
 
-## Purpose of Script
+## 1. Script: `print_numbers.sh`
 
-The purpose of `starter_kit.sh` is to automatically set up a starter folder structure for a typical devcreenshots/Screenshot from 2025-09-10 16-56-23.pngelopment project. This helps teams quickly begin work without manually creating directories and files.
+### Purpose:
+Prints numbers from 1 to 5 using a loop.
 
-![Alt text](Linux_Lab/assignments/ss.png)
+### Line-by-Line Explanation:
+```bash
+#!/bin/bash               # Specifies the script should run in the Bash shell
+# Print numbers from 1 to 5
 
-
-```
-
-\$ ./starter\_kit.sh
-Starter Kit Ready!
-
-```
-
-Then the structure will look like:
-
-```
-
-project/
-├── 
-README.md
-
-
-├── scripts/
-│  
- └── README.md
-
-
-├── docs/
-│   
-└── README.md
-
-
-└── data/
-
-└── README.md
-
+for i in {1..5}           # Loop variable i takes values from 1 to 5
+do
+  echo "Number: $i"       # Prints the current number
+done
 ````
+
+### Example Run:
+
+```bash
+$ ./print_numbers.sh
+Number: 1
+Number: 2
+Number: 3
+Number: 4
+Number: 5
+```
+
+---
+
+## 2. Script: `array_loop.sh`
+
+### Purpose:
+
+Iterates through an array of fruit names and prints a message for each one.
+
+### Line-by-Line Explanation:
+
+```bash
+#!/bin/bash                            # Specifies the script should run in the Bash shell
+# Loop through an array of fruits
+
+fruits=("apple" "banana" "cherry")    # Declares an array named 'fruits'
+
+for fruit in "${fruits[@]}"           # Loops through each element in the array
+do
+  echo "I like $fruit"                # Prints a message with the current fruit
+done
+```
+
+### Example Run:
+
+```bash
+$ ./array_loop.sh
+I like apple
+I like banana
+I like cherry
+```
+
+---
 
 ## Extra Questions
 
-### What does `mkdir -p` do?
+### Q1: What is the purpose of `#!/bin/bash` at the top of a script?
 
-The `mkdir -p` command creates directories **recursively** and **avoids errors if the directory already exists**. For example:
-
-```bash
-mkdir -p project/scripts
-````
-
-This will:
-
-* Create the `project` directory if it doesn't exist.
-* Then create the `scripts` directory inside it.
-* Do nothing if they already exist.
-
-This makes it ideal for automation.
-
-### Why is automation useful in DevOps?
-
-Automation in DevOps is essential because it:
-
-* **Saves time**: Repetitive tasks are handled instantly.
-* **Reduces human error**: Scripts ensure consistency.
-* **Improves scalability**: You can deploy the same setup across many environments.
-* **Supports CI/CD**: Automation is the backbone of continuous integration and deployment.
-* **Enables fast onboarding**: New team members can get started quickly with automated environments.
-
-```
+This is called a **shebang**. It tells the operating system to use the **Bash shell** to execute the script. Without it, the script might run with a different shell (like `sh`), which could cause unexpected behavior if the syntax isn't compatible.
 
 ---
 
+### Q2: How do you make a script executable?
+
+Use the `chmod` command to change the file's permissions. For example:
+
+```bash
+chmod +x scriptname.sh
+```
+
+This allows the script to be run like:
+
+```bash
+./scriptname.sh
+```
+
+---

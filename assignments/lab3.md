@@ -1,126 +1,58 @@
----
+# Assignment 3 – Modify an Existing Script
+## Objective: Enhance and customize a script.
 
-## ✅ Example Scripts in `Scripts/`
-
-Let’s assume you have the following two simple scripts in the `Scripts/` directory:
-
----
-
-### 📄 `print_numbers.sh`
-
-```bash
-#!/bin/bash
-# Print numbers from 1 to 5
-
-for i in {1..5}
-do
-  echo "Number: $i"
-done
 ```
+ In this assignment we are going to modify and enhance a script 
+ ```
 
----
+ # ✅ Script: printnumers.sh
+![alt text](./images3/1.png)
 
-### 📄 `array_loop.sh`
 
-```bash
-#!/bin/bash
-# Loop through an array of fruits
+### 📌 Make it executable and example run:
+![alt text](./images3/2.png)
 
-fruits=("apple" "banana" "cherry")
+## 📌 Modified Script (⁠ enhanced_numbers.sh ⁠)
+ 
+ ![alt text](./images3/3.png)
 
-for fruit in "${fruits[@]}"
-do
-  echo "I like $fruit"
-done
-```
+# 📌 expalnation
 
----
+1 Validate number of arguments
 
-## 📘 `LAB2.md`
 
-````markdown
-# LAB2.md
+2  Validate that start, end, and step are integers
 
-## 1. Script: `print_numbers.sh`
 
-### Purpose:
-Prints numbers from 1 to 5 using a loop.
+3 Determine direction based on start and end
 
-### Line-by-Line Explanation:
-```bash
-#!/bin/bash               # Specifies the script should run in the Bash shell
-# Print numbers from 1 to 5
 
-for i in {1..5}           # Loop variable i takes values from 1 to 5
-do
-  echo "Number: $i"       # Prints the current number
-done
-````
+### 📌 ⁠Purpose: 
 
-### Example Run:
+.Print numbers with user-defined start, end, and step.
 
-```bash
-$ ./print_numbers.sh
-Number: 1
-Number: 2
-Number: 3
-Number: 4
-Number: 5
-```
+•  ⁠Input: User enters values at runtime.
 
----
 
-## 2. Script: `array_loop.sh`
+•⁠  ⁠Validation:
+•⁠  ⁠Step must be a positive integer.
+•⁠  ⁠Inputs must be integers.
+•⁠  ⁠Output: Prints sequence based on user choices.
 
-### Purpose:
+### 📌 Example Runs
 
-Iterates through an array of fruit names and prints a message for each one.
+Example
 
-### Line-by-Line Explanation:
+![images](./images3/5.png)
 
-```bash
-#!/bin/bash                            # Specifies the script should run in the Bash shell
-# Loop through an array of fruits
 
-fruits=("apple" "banana" "cherry")    # Declares an array named 'fruits'
 
-for fruit in "${fruits[@]}"           # Loops through each element in the array
-do
-  echo "I like $fruit"                # Prints a message with the current fruit
-done
-```
+### 📌 Q1=differnce between $1,$@ and $# in bash?
 
-### Example Run:
+    ans= $1= this refers to positional parameters
+         $@= represents all arguments passed to the script
+         $#= returns the number of arguments passed
 
-```bash
-$ ./array_loop.sh
-I like apple
-I like banana
-I like cherry
-```
-
----
-
-## Extra Questions
-
-### Q1: What is the purpose of `#!/bin/bash` at the top of a script?
-
-This is called a **shebang**. It tells the operating system to use the **Bash shell** to execute the script. Without it, the script might run with a different shell (like `sh`), which could cause unexpected behavior if the syntax isn't compatible.
-
----
-
-### Q2: How do you make a script executable?
-
-Use the `chmod` command to change the file's permissions. For example:
-
-```bash
-chmod +x scriptname.sh
-```
-
-This allows the script to be run like:
-
-```bash
-./scriptname.sh
-```
-
----
+### 📌 Q2=what does exit 1 mean in the script
+    
+     ans=script is terminating with an error
