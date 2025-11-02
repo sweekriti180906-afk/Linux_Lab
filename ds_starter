@@ -1,0 +1,28 @@
+#!/bin/bash
+# ================================
+# Data Science Starter Kit Setup
+# ================================
+
+# Step 1: Install required packages
+sudo apt-get update
+sudo apt-get install -y python3 python3-venv python3-pip sqlite3
+
+# Step 2: Create project folder structure
+mkdir -p /home/vibhu0077/ds_starter/app/pages
+chmod -R 777 /home/sweekriti/ds_starter
+
+# Step 3: Set up virtual environment
+cd /home/sweekriti/ds_starter/app
+python3 -m venv venv
+source venv/bin/activate
+
+# Step 4: Install Python dependencies
+pip install --upgrade pip
+pip install streamlit matplotlib pandas numpy
+pip freeze > requirements.txt
+
+# Step 5: Create SQLite database
+cd /home/sweekriti/ds_starter
+sqlite3 ds_starter.db "VACUUM;"
+
+echo "✅ Data Science Starter Pack Setup Completed!"
